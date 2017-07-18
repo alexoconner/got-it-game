@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Animated
+  Animated,
+  Easing
 } from 'react-native';
 
 class MemorizeView extends React.Component {
@@ -14,23 +15,25 @@ class MemorizeView extends React.Component {
   }
 
   state = {
-    boxLeft: new Animated.Value(boxAnimationValues.boxLeft.from),
-    boxRight: new Animated.Value(boxAnimationValues.boxRight.from),
+    boxAni: new Animated.Value(boxAnimationValues.from),
+    boxAniNegative: new Animated.Value(-boxAnimationValues.from)
   }
 
   componentDidMount() {
     Animated.timing(
-      this.state.boxLeft,
+      this.state.boxAni,
       {
-        toValue: boxAnimationValues.boxLeft.to,
-        duration: 500
+        toValue: boxAnimationValues.to,
+        duration: 500,
+        easing: Easing.bounce
       }
     ).start();
     Animated.timing(
-      this.state.boxRight,
+      this.state.boxAniNegative,
       {
-        toValue: boxAnimationValues.boxRight.to,
-        duration: 500
+        toValue: -boxAnimationValues.to,
+        duration: 500,
+        easing: Easing.bounce
       }
     ).start();
   }
@@ -38,20 +41,20 @@ class MemorizeView extends React.Component {
   render() {
     // merging inherited and component styles
     const styles = Object.assign(boxStyles, this.props.styles);
-    let { boxLeft, boxRight } = this.state;
+    let { boxAni, boxAniNegative } = this.state;
 
     return (
       <View style={styles.container}>
-        <Animated.View style={[styles.box, boxStyles.boxOne]}>
+        <Animated.View style={[styles.box, { transform: [{ translateY: boxAniNegative}] }]}>
           <Text style={styles.boxSymbol}>O</Text>
         </Animated.View>
-        <Animated.View style={[styles.box, { left: boxLeft }]}>
+        <Animated.View style={[styles.box, { left: boxAniNegative }]}>
           <Text style={styles.boxSymbol}>X</Text>
         </Animated.View>
-        <Animated.View style={[styles.box, { right: boxRight }]}>
+        <Animated.View style={[styles.box, { right: boxAniNegative }]}>
           <Text style={styles.boxSymbol}>I</Text>
         </Animated.View>
-        <Animated.View style={[styles.box, styles.boxFour]}>
+        <Animated.View style={[styles.box, { transform: [{ translateY: boxAni}] }]}>
           <Text style={styles.boxSymbol}>-</Text>
         </Animated.View>
       </View>
@@ -65,22 +68,8 @@ const box = {
 }
 
 const boxAnimationValues = {
-  boxTop: {
-    from: 280 + box.size + box.margin,
-    to: box.size + box.margin
-  },
-  boxRight: {
-    from: -(280 + box.size + box.margin),
-    to: -(box.size + box.margin)
-  },
-  boxLeft: {
-    from: -(280 + box.size + box.margin),
-    to: -(box.size + box.margin)
-  },
-  boxBottom: {
-    from: -(280 + box.size + box.margin),
-    to: -(box.size + box.margin)
-  },
+  from: (280 + box.size + box.margin),
+  to: (box.size + box.margin)
 }
 
 const boxStyles = StyleSheet.create({
