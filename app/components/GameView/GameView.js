@@ -18,8 +18,11 @@ class GameView extends React.Component {
   }
 }
 
-const boxSize = 100;
-const boxMargin = 20;
+const box = {
+  size: 100,
+  margin: 20
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -30,28 +33,12 @@ const styles = StyleSheet.create({
   },
   box: {
     position: 'absolute',
-    width: boxSize,
-    height: boxSize,
+    width: box.size,
+    height: box.size,
     backgroundColor: '#000',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  boxOne: {
-    transform: [
-      { translateY: -(boxSize + boxMargin) }
-    ],
-  },
-  boxTwo: {
-    left: -(boxSize + boxMargin / 2),
-  },
-  boxThree: {
-    right: -(boxSize + boxMargin / 2),
-  },
-  boxFour: {
-    transform: [
-      { translateY: boxSize + boxMargin }
-    ],
   },
   boxSymbol: {
     color: '#fff',
