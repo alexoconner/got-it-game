@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, Text, View } from 'react-native';
 
-import GameView from './app/components/GameView/index';
+import { HomeView } from './app/components/HomeView/index';
+import { GameView } from './app/components/GameView/index';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <GameView />
+        <HomeView />
       </View>
     );
   }
