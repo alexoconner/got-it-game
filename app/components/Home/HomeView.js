@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -8,7 +9,9 @@ import {
 export default function HomeView() {
   return (
     <View style={styles.container}>
-      <TouchableHighlight style={styles.startBtn}>Start</TouchableHighlight>
+      <TouchableHighlight style={styles.startBtn}>
+        <Text style={styles.startBtnText}>Start</Text>
+      </TouchableHighlight>
     </View>
   );
 };
@@ -16,14 +19,16 @@ export default function HomeView() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    position: 'relative',
+    position: 'relative'
   },
   startBtn: {
-    backgroundColor: '#fff',
+    backgroundColor: '#000',
+  },
+  startBtnText: {
     fontSize: 30,
-    color: '#000'
+    color: '#fff'
   }
 });
