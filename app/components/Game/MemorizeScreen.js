@@ -8,7 +8,7 @@ import {
   Easing
 } from 'react-native';
 
-class MemorizeView extends React.Component {
+class MemorizeScreen extends React.Component {
 
   static propTypes = {
     styles: PropTypes.object
@@ -91,4 +91,4 @@ const boxStyles = StyleSheet.create({
   },
 })
 
-export default MemorizeView;
+export default MemorizeScreen;

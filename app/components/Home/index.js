@@ -1,1 +1,1 @@
-export HomeView from './HomeView';
+export HomeScreen from './HomeScreen';

@@ -1,1 +1,2 @@
-export GameView from './GameView';
+export GameScreen from './GameScreen';
+export MemorizeScreen from './MemorizeScreen';

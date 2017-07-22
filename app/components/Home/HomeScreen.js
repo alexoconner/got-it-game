@@ -6,7 +6,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-export default function HomeView() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <TouchableHighlight style={styles.startBtn}>

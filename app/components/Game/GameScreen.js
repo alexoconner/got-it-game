@@ -6,13 +6,13 @@ import {
   View
 } from 'react-native';
 
-import MemorizeView from './MemorizeView';
+import MemorizeScreen from './MemorizeScreen';
 
-class GameView extends React.Component {
+class GameScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MemorizeView styles={styles} />
+        <MemorizeScreen styles={styles} />
       </View>
     );
   }
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default GameView;
+export default GameScreen;
