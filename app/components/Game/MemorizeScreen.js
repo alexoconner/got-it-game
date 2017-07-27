@@ -20,6 +20,12 @@ class MemorizeScreen extends React.Component {
   }
 
   componentDidMount() {
+    window.setTimeout( () => {
+      this.animation();
+    }, 1000);
+  }
+
+  animation() {
     Animated.timing(
       this.state.boxAni,
       {
